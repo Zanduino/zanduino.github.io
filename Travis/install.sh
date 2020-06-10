@@ -102,12 +102,12 @@ DEPENDENCY_OUTPUT=$(arduino --pref "boardsmanager.additional.urls=https://adafru
 if [ $? -ne 0 ]; then echo -e """$RED""\xe2\x9c\x96"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
 
 # This is a hack, we have to install by hand so lets delete it
-echo "Removing ESP32 cache"
-rm -rf ~/.arduino15/packages/esp32
-echo -n "Current packages list:"
-[ -d ~/.arduino15/packages/ ] && ls ~/.arduino15/packages/
+#echo "Removing ESP32 cache"
+#rm -rf ~/.arduino15/packages/esp32
+#echo -n "Current packages list:"
+#[ -d ~/.arduino15/packages/ ] && ls ~/.arduino15/packages/
 
-#INSTALL_ESP32=$([[ $INSTALL_PLATFORMS == *"esp32"* || -z "$INSTALL_PLATFORMS" ]] && echo 1 || echo 0)
+INSTALL_ESP32=$([[ $INSTALL_PLATFORMS == *"esp32"* || -z "$INSTALL_PLATFORMS" ]] && echo 1 || echo 0)
 INSTALL_ZERO=$([[ $INSTALL_PLATFORMS == *"zero"* || -z "$INSTALL_PLATFORMS" ]] && echo 1 || echo 0)
 INSTALL_ESP8266=$([[ $INSTALL_PLATFORMS == *"esp8266"* || -z "$INSTALL_PLATFORMS" ]] && echo 1 || echo 0)
 INSTALL_AVR=$([[ $INSTALL_PLATFORMS == *"avr"* || -z "$INSTALL_PLATFORMS" ]] && echo 1 || echo 0)
